@@ -27,8 +27,8 @@ namespace Crm.EntityLayer.Concrete
         [StringLength(5)]
         public string EmployeeGender { get; set; }
 
-        [StringLength(50)]
-        public DateTime EmployeeBirth { get; set; }    
+        //[StringLength(50)]
+        //public DateTime EmployeeBirth { get; set; }    
 
     }
 }

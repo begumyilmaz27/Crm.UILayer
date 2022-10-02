@@ -1,4 +1,5 @@
-﻿using Crm.EntityLayer.Concrete;
+﻿using Crm.DataAccessLayer.Concrete;
+using Crm.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace Crm.DataAccessLayer.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
+        List<Product> GetListProductWithCategory();
+
     }
 }
