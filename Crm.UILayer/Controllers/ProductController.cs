@@ -12,6 +12,7 @@ namespace Crm.UILayer.Controllers
     {
 
         ProductManager productManager = new ProductManager(new EfProductDal());
+        CategoryManager categoryManager= new CategoryManager(new EfCategoryDal());
 
         public IActionResult Index()
         {
@@ -22,6 +23,13 @@ namespace Crm.UILayer.Controllers
         [HttpGet]
         public IActionResult AddProduct()
         {
+            List<SelectListItem> values = (from x in categoryManager.TGetListAll()
+                                           select new SelectListItem
+                                           {
+                                             Text=x.CategoryName,
+                                             Value=x.CategoryID.ToString()
+                                           }).ToList();
+            ViewBag.v=values;
             return View();
         }
 
