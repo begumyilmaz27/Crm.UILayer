@@ -28,31 +28,7 @@
 
     <label>Ürün Kategorisi</label>
     <input type="text" asp-for="CategoryID" class="form-control" />
-    <br />
-
-    
-
-@*        <fieldset>
-            Movie Type
-            <select id="MovieType" name="MovieType">
-
-                <option value=""></option>
-
-                <option value="0">Action</option>
-
-                <option value="1">Drama</option>
-
-                <option selected="selected" value="2">Comedy</option>
-
-                <option value="3">Science Fiction</option>
-
-            </select>
-
-            <p><input type="submit" value="Submit" /> </p>
-
-        </fieldset>
-*@
-  
+    <br />  
 
     <label>Ürün Kategorisi</label>
     @Html.DropDownListFor(x => x.category, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })

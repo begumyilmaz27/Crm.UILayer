@@ -5,27 +5,43 @@
     Layout = "~/Views/Shared/_CrmLayout.cshtml";
 }
 
-<h1>Çalışan Listesi</h1>
+@{
+    string cinsiyet;
+    int sayac = 0;
+}
+
+<br />
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
         <th>Ad</th>
         <th>Soyad</th>
         <th>Mail</th>
-        <th>Cinsiyet</th>
-        <th>Doğum Tarihi</th>
-        <th>Sil</th>
-        <th>Düzenle</th>
+        <th>Cinsiyet</th>        
+        <th>Sil</th>        
+        <th>Düzenle</th>        
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.EmployeeID</td>
-            <td>@item.EmployeeName</td>
-            <td>@item.EmployeeSurname</td>
-            <td>@item.EmployeeGender</td>
-@*            <td>@item.EmployeeBirth</td>*@            
+        if (item.EmployeeGender == "Erkek")
+        {
+            cinsiyet = "color: blue; font - weight:bold";
+        }
+        else
+        {
+            cinsiyet = "color: red; font - weight:bold";
+        }
 
+        sayac++;
+
+        <tr>
+            <td>@sayac</td>
+            <td>@item.EmployeeName</td>
+            <td>@item.EmployeeID</td>
+            <td>@item.EmployeeSurname</td>
+            <td>@item.EmployeeMail</td>
+            <td><span style="@cinsiyet">@item.EmployeeGender</span></td>
             <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
         </tr>
