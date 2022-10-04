@@ -1,4 +1,5 @@
 ﻿using Crm.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Crm.DataAccessLayer.Concrete
 {
-    public class Context:DbContext
+    public class Context:IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,5 +22,6 @@ namespace Crm.DataAccessLayer.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Role> Roles { get; set; }
+
     }
 }
